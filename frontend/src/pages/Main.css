@@ -1,0 +1,82 @@
+.main-container {
+  max-width: 98rem;
+  width: 90%;
+  margin: 0 auto;
+  padding: 5rem 0;
+  text-align: center;
+}
+
+.main-container ul {
+  list-style: none;
+  margin-top: 5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+  gap: 3rem;
+}
+
+.main-container ul li {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-container ul li > img {
+  width: 100%;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.main-container ul li footer {
+  flex: 1; /* Fill the remaining space */
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 1.5rem 2rem;
+  text-align: left;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.main-container ul li footer strong {
+  font-size: 16px;
+  color: #333;
+}
+
+.main-container ul li footer p {
+  font-size: 14px;
+  line-height: 2rem;
+  color: #999;
+  margin-top: 0.5rem;
+}
+
+.main-container ul li .buttons {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.main-container ul li .buttons button {
+  width: 100%;
+  height: 5rem;
+  box-shadow: 0 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.05);
+  background: #fff;
+  border: 0;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.main-container ul li .buttons button:hover {
+  box-shadow: 0 0.5rem 0.6rem 0 rgba(0, 0, 0, 0.04);
+}
+
+.main-container ul li .buttons button img {
+  transition: all 0.2s;
+}
+
+.main-container ul li .buttons button:hover img {
+  transform: translateY(-1px);
+}
+
+.main-container .empty {
+  font-size: 32px;
+  color: #999;
+  font-weight: bold;
+  margin-top: 20rem;
+}
