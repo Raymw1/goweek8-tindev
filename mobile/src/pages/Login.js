@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   StyleSheet,
   Text,
@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   Platform,
 } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import api from '../services/api';
 
 import logo from '../assets/logo.png';
@@ -15,12 +16,19 @@ import logo from '../assets/logo.png';
 export default function Login({navigation}) {
   const [user, setUser] = useState('');
 
+  useEffect(() => {
+    AsyncStorage.getItem('@Omni:user').then(userId => {
+      if (userId) navigation.navigate('Main', {user: userId});
+    });
+  }, [navigation]);
+
   async function handleLogin() {
-    if (!user) return;
+    if (!user.trim()) return;
     const {
-      data: {_id},
+      data: {_id: userId},
     } = await api.post('/devs', {username: user});
-    navigation.navigate('Main', {_id});
+    await AsyncStorage.setItem('@Omni:user', userId);
+    navigation.navigate('Main', {user: userId});
   }
 
   return (
